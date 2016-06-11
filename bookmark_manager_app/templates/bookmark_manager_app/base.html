@@ -1,0 +1,27 @@
+{% load staticfiles %}
+
+<html ng-app="bookmarkApp">
+<head>
+  <title>Bookmark Manager</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'bookmark_manager/vendor.css' %}" />
+</head>
+
+<body ng-controller=AppController>
+
+  <navbar></navbar>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 ng-view">
+          <div ng-repeat="bookmark in bookmarks">
+              <div>{[{bookmark.name}]} - {[{bookmark.url}]}</div>
+          </div>
+      </div>
+    </div>
+  </div>
+  
+  <script type="text/javascript" src="{% static 'bookmark_manager/vendor.js' %}"></script>
+  <script type="text/javascript" src="{% static 'bookmark_manager/templates.js' %}"></script>
+  <script type="text/javascript" src="{% static 'bookmark_manager/index.js' %}"></script>
+</body>
+</html>

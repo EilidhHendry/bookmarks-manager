@@ -1,0 +1,11 @@
+logs/*
+!.gitkeep
+node_modules/
+bower_components/
+venv/
+tmp
+.DS_Store
+.idea
+db.sqlite3
+*.pyc
+*.swp
