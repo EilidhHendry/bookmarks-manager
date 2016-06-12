@@ -6,21 +6,20 @@
   <link rel="stylesheet" type="text/css" href="{% static 'bookmark_manager/vendor.css' %}" />
 </head>
 
-<body ng-controller=AppController>
+<body ng-controller="AppController as appCtrl" layout="column">
 
   <navbar></navbar>
-  <bookmark-list></bookmark-list>
 
-  <div class="container-fluid">
-      <bookmark-list></bookmark-list>
-    <div class="row">
-      <div class="col-xs-12 ng-view">
-          <div ng-repeat="bookmark in bookmarks">
-              <div>{[{bookmark.name}]} - {[{bookmark.url}]}</div>
-          </div>
-      </div>
+    <div layout="row" flex>
+
+        <div layout="column" flex id="content">
+
+            <addbookmark></addbookmark>
+
+            <bookmarklist></bookmarklist>
+
+        </div>
     </div>
-  </div>
 
   <script type="text/javascript" src="{% static 'bookmark_manager/vendor.js' %}"></script>
   <script type="text/javascript" src="{% static 'bookmark_manager/templates.js' %}"></script>

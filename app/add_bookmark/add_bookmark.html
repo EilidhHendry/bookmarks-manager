@@ -1,0 +1,35 @@
+<div ng-controller="AddBookmarkController">
+    <md-card class="md-inline-form">
+        <md-card-content>
+            <form name="addBookmark">
+                <div layout="column">
+                    <h3>Add Bookmark</h3>
+                    <div layout="row">
+
+                        <md-input-container>
+                            <label>Name</label>
+                            <input required="" md-maxlength="30" name="name" ng-model="newBookmark.name">
+                            <div ng-messages="addBookmark.name.$error">
+                                <div ng-message="required">This is required.</div>
+                                <div ng-message="md-maxlength">The name must be less than 30 characters long.</div>
+                            </div>
+                        </md-input-container>
+
+                        <md-input-container>
+                            <label>URL</label>
+                            <input required="" md-maxlength="100" name="url"
+                            ng-model="newBookmark.url" ng-model="url">
+                            <div ng-messages="addBookmark.url.$error">
+                                <div ng-message="required">The url must...</div>
+                            </div>
+                        </md-input-container>
+
+                    </div>
+
+                    <md-button class="md-raised md-primary" ng-click="save()" aria-label="save">Save</md-button>
+
+                </div>
+            </form>
+        </md-card-content>
+    </md-card>
+</div>

@@ -1,16 +1,15 @@
 angular.module("bookmarkApp")
-.directive("bookmark-list", function () {
+.directive("bookmarklist", function () {
     return {
-        templateUrl: "list.html",
+        templateUrl: "list/list.html",
     };
 })
 
-.factory('Bookmark', ["$resource", function ($resource) {
-    return $resource('api/bookmarks/:id', {
-        id: '@id'
+.controller("ListController", ["$scope", "$http", function ($scope, $http) {
+    $scope.bookmarks = [];
+    return $http.get('/api/bookmarks/').then(function (result) {
+      return angular.forEach(result.data, function (item) {
+        return $scope.bookmarks.push(item);
+      });
     });
-}])
-
-.controller("ListController", ["$scope", 'Bookmark', function($scope, Bookmark) {
-    return $scope.bookmarks = Bookmark.query()
-}])
+}]);

@@ -1,9 +1,17 @@
-<div ng-controller=ListController>
-    <md-list flex>
-        <md-list-item ng-repeat="bookmark in bookmarks">
-            <div class="md-list-item-text" layout="column">
-                <p>{[{ bookmark.name }]} - {[{ bookmark.url }]}</p>
-            </div>
-        </md-list-item>
-    </md-list>
+<div ng-controller="ListController">
+    <md-card>
+        <md-card-content>
+            <h2>Bookmarks</h2>
+            <md-list>
+                <md-list-item ng-repeat="bookmark in bookmarks">
+                    <md-item-content>
+                        <div class="md-tile-content">
+                            <p>{[{ bookmark.name }]} - {[{ bookmark.url }]}</p>
+                        </div>
+                        <md-divider ng-if="!$last"></md-divider>
+                    </md-item-content>
+                </md-list-item>
+            </md-list>
+        </md-card-content>
+    </md-card>
 </div>
