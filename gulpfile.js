@@ -23,6 +23,7 @@ var node_modules_js = [
     node_modules_root + "/angular-aria/angular-aria.js",
     node_modules_root + "/angular-material/angular-material.js",
     node_modules_root + "/angular-material-icons/angular-material-icons.js",
+    node_modules_root + "/angular-resource/angular-resource.js",
 ];
 var node_modules_css = [
     node_modules_root + "/angular-material/angular-material.css",
