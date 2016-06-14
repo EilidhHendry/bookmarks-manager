@@ -1,8 +1,42 @@
 <div ng-controller="NavbarController as navCtrl">
-    <md-toolbar>
+    <md-toolbar class="animate-show md-whiteframe-z1" ng-show="!showSearch">
         <div class="md-toolbar-tools">
-            <h2><span>Bookmark Manager</span></h2>
+            <h3>
+                Bookmark Manager
+            </h3>
             <span flex></span>
+            <md-button class="md-icon-button" aria-label="Search" ng-click="toggleSearch()">
+                <md-icon md-svg-icon="action:ic_search_24px" aria-label="Search"></md-icon>
+            </md-button>
+            <md-button class="md-icon-button" aria-label="Open Settings" ng-click="showListBottomSheet($event)">
+                <md-icon md-svg-icon="navigation:ic_more_vert_24px" aria-label="More"></md-icon>
+            </md-button>
+        </div>
+        <span flex></span>
+    </md-toolbar>
+    <md-toolbar ng-show="showSearch" class="animate-show md-hue-1 md-whiteframe-z1">
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" ng-click="nsvCtrl.toggleSearch()" aria-label="Menu">
+                <md-icon md-svg-icon="navigation:ic_arrow_back_24px" aria-label="Back"></md-icon>
+            </md-button>
+            <h3 role="button" ng-click="toggleSearch()">
+                Back
+            </h3>
+            <span flex="5"></span>
+            <span ng-controller="SearchController as searchCtrl" flex>
+                <md-autocomplete md-theme="input"
+                md-input-name="autocompleteField"
+                md-no-cache="searchCtrl.noCache"
+                md-selected-item="searchCtrl.selectedItem"
+                md-search-text="searchCtrl.searchText"
+                md-items="item in searchCtrl.querySearch(searchCtrl.searchText)"
+                md-item-text="item.display"
+                placeholder="Search">
+                    <md-item-template>
+                        <span md-highlight-text="searchCtrl.searchText">{{item.display}}</span>
+                    </md-item-template>
+                </md-autocomplete>
+            </span>
         </div>
     </md-toolbar>
 </div>

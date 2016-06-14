@@ -13,7 +13,7 @@ var autoprefixer = require('gulp-autoprefixer');
 
 var angular_app_root = 'app';
 var angular_app_module_js = [angular_app_root + '/**/*.js', "!" + angular_app_root + '/templates.js'];
-var angular_app_module_html = angular_app_root + '/**/*.html';
+var angular_app_module_html = [angular_app_root + '/**/*.html', "node_modules/angular-utils-pagination/dirPagination.tpl.html"];
 var angular_app_module_scss = angular_app_root + '/**/*.scss';
 
 var node_modules_root = "node_modules";
@@ -23,7 +23,7 @@ var node_modules_js = [
     node_modules_root + "/angular-aria/angular-aria.js",
     node_modules_root + "/angular-material/angular-material.js",
     node_modules_root + "/angular-material-icons/angular-material-icons.js",
-    node_modules_root + "/angular-resource/angular-resource.js",
+    node_modules_root + "/angular-utils-pagination/dirPagination.js",
 ];
 var node_modules_css = [
     node_modules_root + "/angular-material/angular-material.css",

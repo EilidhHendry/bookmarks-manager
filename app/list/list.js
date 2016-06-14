@@ -5,11 +5,8 @@ angular.module("bookmarkApp")
     };
 })
 
-.controller("ListController", ["$scope", "$http", function ($scope, $http) {
-    $scope.bookmarks = [];
-    return $http.get('/api/bookmarks/').then(function (result) {
-      return angular.forEach(result.data, function (item) {
-        return $scope.bookmarks.push(item);
-      });
+.controller("ListController", ["$scope", "BookmarkService", function ($scope, BookmarkService) {
+    BookmarkService.list().then(function(result){
+      $scope.bookmarks = result;
     });
 }]);

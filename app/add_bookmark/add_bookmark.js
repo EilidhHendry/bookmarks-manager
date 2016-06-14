@@ -1,5 +1,3 @@
-"use strict";
-
 angular.module("bookmarkApp")
 
 .directive("addbookmark", function () {
@@ -8,12 +6,11 @@ angular.module("bookmarkApp")
     };
 })
 
-.controller('AddBookmarkController', ['$scope', "$http",  function($scope, $http) {
-    $scope.save = function () {
-        $http.post('/api/bookmarks/', $scope.newBookmark).error(function(data,status,headers,config){
-            console.log('COULDNT POST!');
-        }).success(function(data, status, headers, config){
-            console.log('POSTED!');
-        });
-    };
+.controller("AddBookmarkController", ["$scope", "BookmarkService", function ($scope, BookmarkService) {
+    console.log($scope.newBookmark);
+    var newBookmark = this.newBookmark;
+    this.save = function() {
+        BookmarkService.save(newBookmark);
+        console.log(newBookmark);
+    }
 }]);

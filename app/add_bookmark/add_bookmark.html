@@ -1,16 +1,17 @@
-<div ng-controller="AddBookmarkController">
+<div ng-controller="AddBookmarkController as addBookmarkCtrl">
     <md-card class="md-inline-form">
         <md-card-content>
-            <form name="addBookmark">
+            <form>
                 <div layout="column">
                     <h3>Add Bookmark</h3>
                     <div layout="row">
 
                         <md-input-container>
                             <label>Name</label>
-                            <input required="" md-maxlength="30" name="name" ng-model="newBookmark.name">
-                            <div ng-messages="addBookmark.name.$error">
-                                <div ng-message="required">This is required.</div>
+                            <input required="" md-maxlength="30" name="name"
+                            ng-model="addBookmarkCtrl.newBookmark.name">
+                            <div ng-messages="addBookmarkCtrl.newBookmark.name.$error">
+                                <div ng-message="required">This field is required.</div>
                                 <div ng-message="md-maxlength">The name must be less than 30 characters long.</div>
                             </div>
                         </md-input-container>
@@ -18,15 +19,15 @@
                         <md-input-container>
                             <label>URL</label>
                             <input required="" md-maxlength="100" name="url"
-                            ng-model="newBookmark.url" ng-model="url">
-                            <div ng-messages="addBookmark.url.$error">
-                                <div ng-message="required">The url must...</div>
+                            ng-model="addBookmarkCtrl.newBookmark.url">
+                            <div ng-messages="addBookmarkCtrl.newBookmark.url.$error">
+                                <div ng-message="required">This field is required.</div> //TODO: add url validation and error
                             </div>
                         </md-input-container>
 
                     </div>
 
-                    <md-button class="md-raised md-primary" ng-click="save()" aria-label="save">Save</md-button>
+                    <md-button class="md-raised md-primary" ng-click="addBookmarkCtrl.save()" aria-label="save">Save</md-button>
 
                 </div>
             </form>

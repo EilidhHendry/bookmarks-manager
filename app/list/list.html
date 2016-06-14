@@ -1,13 +1,16 @@
-<div ng-controller="ListController">
+<div ng-controller="ListController as listCtrl">
     <md-card>
         <md-card-content>
             <h2>Bookmarks</h2>
             <md-list>
-                <md-list-item ng-repeat="bookmark in bookmarks">
+                <md-list-item dir-paginate="bookmark in bookmarks | itemsPerPage: 20" pagination-id="bookmarksPagination">
                     <md-item-content>
                         <div class="md-tile-content">
                             <p>{[{ bookmark.name }]} - {[{ bookmark.url }]}</p>
                         </div>
+                        <md-button class="md-icon-button md-primary" aria-label="Settings">
+                            <md-icon md-svg-icon="menu"></md-icon>
+                        </md-button>
                         <md-divider ng-if="!$last"></md-divider>
                     </md-item-content>
                 </md-list-item>
