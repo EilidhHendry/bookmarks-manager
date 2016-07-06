@@ -5,8 +5,7 @@ angular.module("bookmarkApp")
     };
 })
 
-.controller("ListController", ["$scope", "BookmarkService", function ($scope, BookmarkService) {
-    BookmarkService.list().then(function(result){
-      $scope.bookmarks = result;
-    });
+.controller("ListController", ["BookmarkService", function (BookmarkService) {
+    BookmarkService.list_bookmarks()
+    this.bookmarks = BookmarkService.items;
 }]);

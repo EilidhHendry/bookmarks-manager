@@ -6,11 +6,8 @@ angular.module("bookmarkApp")
     };
 })
 
-.controller("AddBookmarkController", ["$scope", "BookmarkService", function ($scope, BookmarkService) {
-    console.log($scope.newBookmark);
-    var newBookmark = this.newBookmark;
+.controller("AddBookmarkController", ["BookmarkService", function (BookmarkService) {
     this.save = function() {
-        BookmarkService.save(newBookmark);
-        console.log(newBookmark);
+        BookmarkService.add_bookmark(this.newBookmark);
     }
 }]);

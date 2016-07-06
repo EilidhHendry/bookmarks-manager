@@ -3,7 +3,7 @@
         <md-card-content>
             <h2>Bookmarks</h2>
             <md-list>
-                <md-list-item dir-paginate="bookmark in bookmarks | itemsPerPage: 20" pagination-id="bookmarksPagination">
+                <md-list-item dir-paginate="bookmark in listCtrl.bookmarks | itemsPerPage: 20" pagination-id="bookmarksPagination">
                     <md-item-content>
                         <div class="md-tile-content">
                             <p>{[{ bookmark.name }]} - {[{ bookmark.url }]}</p>
